@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Estimating Bermuda Grass Yield with Shiny</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Estimating Bermuda Grass Yield with Shiny">
+  <meta name="author" content="Ryan Emerson">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Estimating Bermuda Grass Yield with Shiny</h1>
+    <h2></h2>
+    <p>Ryan Emerson<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>About the Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The data used for this excercise comes from the agridat library.</p>
+
+<p>It includes three years of harvest data on fields of Bermuda Grass that received different schedules of fertilizer applications.</p>
+
+<p>Here is a sample view of the data.</p>
+
+<pre><code class="r">library(agridat)
+data(welch.bermudagrass)
+head(welch.bermudagrass)
+</code></pre>
+
+<pre><code>##     n  p k yield
+## 1   0  0 0  1.98
+## 2   0 22 0  2.38
+## 3   0 44 0  2.18
+## 4   0 88 0  2.22
+## 5 100  0 0  3.88
+## 6 100 22 0  4.35
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>About the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This app allows the user to explore the relationship between the input variables (fertilzers) with the output variable (yield) in a linear regression model.</p>
+
+<p>For instanance, if you select the checkbox on variable n then you will be instructing the app to run a linear regression in the form of:</p>
+
+<pre><code class="r">lm(yield ~ m, data=welch.bermudagrass)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Getting Outputs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Regardless of the input variables the user selects, they will see various outputs from the result of the linear regression including:</p>
+
+<h3>1. The formula of the linear regression.</h3>
+
+<h3>2. A coefficient table that includes coefficient estimates, the standard error, the t value, and the p value.</h3>
+
+<h3>3. Diagnostic plots for the linear regression.</h3>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Results</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>As a result of our shiny app we can see that all three fertilizer inputs have a significant impact on the yield of Bermuda Grass.</p>
+
+<p>We can use this information to better inform our planting decisions in future years.</p>
+
+<p>A linear regression may not be the best approach to take, since we would expect the affect of fertilizer to decrease as the level of fertilizer increases. Therefore, this relationship is not linear as there are diminishing returns to fertilizer application.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='About the Data'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='About the App'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Getting Outputs'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Results'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
