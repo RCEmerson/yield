@@ -7,7 +7,7 @@ shinyUI(pageWithSidebar(
         p("Choose factors to include as independent variables in model."),
         uiOutput("ind"),
         br(),
-        a("Link to Github Repo", href = "https://github.com/")
+        a("Link to Github Repo", href = "https://github.com/RCEmerson/yield")
     ),
     
     mainPanel(
